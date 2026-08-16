@@ -15,7 +15,7 @@ function App() {
     setShowForm((showForm) => !showForm);
   }
 
-  // GET - Fetch all toys when the page loads
+  // GET - Fetch all toys when the app loads
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
@@ -27,7 +27,7 @@ function App() {
       });
   }, []);
 
-  // POST - Create a new toy
+  // POST - Add a new toy
   function handleAddToy(newToy) {
     fetch(API_URL, {
       method: "POST",
