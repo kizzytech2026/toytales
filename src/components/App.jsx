@@ -14,7 +14,7 @@ function App() {
     setShowForm((showForm) => !showForm);
   }
 
-  // GET - Display all toys
+  // GET - Fetch all toys
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
@@ -70,13 +70,13 @@ function App() {
 
   // PATCH - Like a toy
   function handleLikeToy(id) {
-    const toy = toys.find((toy) => toy.id === id);
+    const toyToUpdate = toys.find((toy) => toy.id === id);
 
-    if (!toy) {
+    if (!toyToUpdate) {
       return;
     }
 
-    const updatedLikes = toy.likes + 1;
+    const updatedLikes = toyToUpdate.likes + 1;
 
     fetch(`${API_URL}/${id}`, {
       method: "PATCH",
