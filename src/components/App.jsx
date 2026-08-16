@@ -10,12 +10,11 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [toys, setToys] = useState([]);
 
-  // Show/hide the form
   function handleClick() {
     setShowForm((showForm) => !showForm);
   }
 
-  // GET - Fetch all toys when the app loads
+  // GET - Display all toys
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
@@ -27,7 +26,7 @@ function App() {
       });
   }, []);
 
-  // POST - Add a new toy
+  // POST - Add a toy
   function handleAddToy(newToy) {
     fetch(API_URL, {
       method: "POST",
@@ -71,13 +70,13 @@ function App() {
 
   // PATCH - Like a toy
   function handleLikeToy(id) {
-    const toyToUpdate = toys.find((toy) => toy.id === id);
+    const toy = toys.find((toy) => toy.id === id);
 
-    if (!toyToUpdate) {
+    if (!toy) {
       return;
     }
 
-    const updatedLikes = toyToUpdate.likes + 1;
+    const updatedLikes = toy.likes + 1;
 
     fetch(`${API_URL}/${id}`, {
       method: "PATCH",
@@ -110,7 +109,9 @@ function App() {
       ) : null}
 
       <div className="buttonContainer">
-        <button onClick={handleClick}>Add a Toy</button>
+        <button onClick={handleClick}>
+          Add a Toy
+        </button>
       </div>
 
       <ToyContainer
