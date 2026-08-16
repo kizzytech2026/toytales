@@ -1,6 +1,10 @@
 import React from "react";
 
-function ToyCard({ toy, onLikeToy, onDeleteToy }) {
+function ToyCard({
+  toy,
+  onLikeToy,
+  onDeleteToy,
+}) {
   function handleLike() {
     onLikeToy(toy.id);
   }

@@ -33,7 +33,9 @@ function ToyForm({ onAddToy }) {
           placeholder="Enter a toy's name..."
           className="input-text"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) =>
+            setName(event.target.value)
+          }
         />
 
         <br />
@@ -44,7 +46,9 @@ function ToyForm({ onAddToy }) {
           placeholder="Enter a toy's image URL..."
           className="input-text"
           value={image}
-          onChange={(event) => setImage(event.target.value)}
+          onChange={(event) =>
+            setImage(event.target.value)
+          }
         />
 
         <br />
